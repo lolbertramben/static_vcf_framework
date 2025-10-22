@@ -5,7 +5,7 @@ GlobalApp.define('counter', el => {
   //   const link = document.createElement('link');
   //   link.id = 'counter-style';
   //   link.rel = 'stylesheet';
-  //   link.href = '/components/counter/counterStyle.css';
+  //   link.href = './js/components/counter/counterStyle.css';
   //   document.head.appendChild(link);
   // }
 

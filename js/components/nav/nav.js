@@ -5,7 +5,7 @@ GlobalApp.define('nav', el => {
   //   const link = document.createElement('link');
   //   link.id = 'nav-style';
   //   link.rel = 'stylesheet';
-  //   link.href = '/components/nav/navStyle.css';
+  //   link.href = './js/components/nav/navStyle.css';
   //   document.head.appendChild(link);
   // }
 
