@@ -1,11 +1,11 @@
 GlobalApp.define('nav', el => {
   // Styling can be included here if needed
 
-  // if(!document.getElementById('counter-style')) {
+  // if(!document.getElementById('nav-style')) {
   //   const link = document.createElement('link');
-  //   link.id = 'counter-style';
+  //   link.id = 'nav-style';
   //   link.rel = 'stylesheet';
-  //   link.href = '/components/counter/counterStyle.css';
+  //   link.href = '/components/nav/navStyle.css';
   //   document.head.appendChild(link);
   // }
 
