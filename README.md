@@ -5,7 +5,7 @@ Hele DOM'en ligger i HTML'en fra start — JavaScript styrer kun vis/skjul af vi
 
 ---
 
-## 🚀 Kort fortalt
+## Kort fortalt
 
 **VCF** er bygget efter princippet:
 
@@ -126,6 +126,7 @@ De vigtigste funktioner:
 
 ---
 
+<!--
 ## 🧩 Designprincipper
 
 | Princip            | Forklaring                                               |
@@ -157,7 +158,7 @@ De vigtigste funktioner:
 2. Åbn `index.html` i din browser.
 3. Rediger markup og komponenter efter behov.
 
----
+--- -->
 
 ## 🏁 Opsummering
 
@@ -168,7 +169,3 @@ De vigtigste funktioner:
 - Enkel komponentstruktur
 - Hash-baseret routing
 - Ingen afhængigheder – kun _vanilla HTML, CSS, JS_
-
----
-
-© 2025 – Lavet til læring og hurtig udvikling af simple websites.
