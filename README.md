@@ -160,7 +160,7 @@ De vigtigste funktioner:
 
 --- -->
 
-## 🏁 Opsummering
+## Opsummering
 
 **VCF** giver dig:
 
