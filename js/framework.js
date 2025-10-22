@@ -1,5 +1,5 @@
-// Vanilla Static View Framework (VCF)
-window.VCF = (function(){
+// Vanilla Static View Framework
+window.GlobalApp = (function(){
   const components = new Map();
   let currentView = null;
 

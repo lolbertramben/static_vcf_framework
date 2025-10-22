@@ -1,4 +1,14 @@
-VCF.define('counter', el => {
+GlobalApp.define('counter', el => {
+  // Styling can be included here if needed
+
+  // if(!document.getElementById('counter-style')) {
+  //   const link = document.createElement('link');
+  //   link.id = 'counter-style';
+  //   link.rel = 'stylesheet';
+  //   link.href = '/components/counter/counterStyle.css';
+  //   document.head.appendChild(link);
+  // }
+
   const countEl = el.querySelector('[data-bind="count"]');
   const incBtn  = el.querySelector('[data-action="inc"]');
   const resetBtn = el.querySelector('[data-action="reset"]');

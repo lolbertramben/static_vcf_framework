@@ -1,6 +1,6 @@
-VCF.define('nav', el => {
+GlobalApp.define('nav', el => {
   const links = el.querySelectorAll('a[data-action^="goto:"]');
-  
+
   function updateActive(view){
     links.forEach(a => {
       const [, v] = a.dataset.action.split(':');

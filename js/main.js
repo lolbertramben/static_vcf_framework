@@ -1,3 +1,3 @@
 document.addEventListener('DOMContentLoaded', () => {
-  VCF.initAll();
+  GlobalApp.initAll();
 });
