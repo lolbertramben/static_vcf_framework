@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Static View Framework Demo</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header data-component="nav"></header>
+
+  <main>
+    <section data-view="home">
+      <h1>Forside</h1>
+      <p>Velkommen til vores demo-side.</p>
+      <div data-component="counter" class="counter">
+        <div class="card flex gap">
+          <span>Antal: <strong data-bind="count">0</strong></span>
+          <button data-action="inc" class="btn">+1</button>
+          <button data-action="reset" class="btn">Nulstil</button>
+        </div>
+      </div>
+      <button data-action="goto:about" class="btn">Gå til Om os</button>
+    </section>
+
+    <section data-view="about" hidden>
+      <h1>Om os</h1>
+      <p>Dette er en demo af et statisk DOM-baseret mini-framework.</p>
+      <button data-action="goto:home" class="btn">Tilbage til Forsiden</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Static View Framework</p>
+  </footer>
+
+  <script src="js/framework.js"></script>
+  <script src="js/components/nav.js"></script>
+  <script src="js/components/counter.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

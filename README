@@ -1,0 +1,52 @@
+# Vanilla Component Framework (VCF)
+
+Et ultralet _vanilla JS_ framework til simple, statiske websites.  
+Hele DOM'en ligger i HTML'en fra start — JavaScript styrer kun vis/skjul af views og binder adfærd til komponenter.
+
+---
+
+## 🚀 Kort fortalt
+
+**VCF** er bygget efter princippet:
+
+> "Alt indhold ligger allerede i HTML'en. JavaScript ændrer kun synlighed og adfærd."
+
+- Ingen mounting/unmounting af DOM-elementer
+- SEO-venligt (alt indhold findes i HTML)
+- Hurtigt og simpelt
+- Komponenter = små JS-moduler, der binder events til eksisterende HTML
+
+---
+
+## 📁 Struktur
+
+project/
+├── index.html
+├── css/
+│ └── style.css
+└── js/
+├── framework.js # Kernefunktioner: views og komponenthåndtering
+├── main.js # Starter frameworket
+└── components/
+├── nav.js # Navigation med aktivt view
+└── counter.js # Simpelt komponent med events
+
+---
+
+## ⚙️ Sådan virker det
+
+### 1. Views (routing)
+
+Hvert “view” er et `<section>`-element med attributten `data-view`.
+
+```html
+<section data-view="home">Forside</section>
+<section data-view="about" hidden>Om os</section>
+
+Frameworket viser/skjuler views ved at toggle hidden-attributten. Navigation
+sker via data-action="goto:viewName":
+<button data-action="goto:about">Gå til Om os</button>
+
+framework.js håndterer hash-routing (#home, #about) og udsender et globalt event
+viewchange.
+```
