@@ -3,10 +3,59 @@ window.GlobalApp = (function(){
   const components = new Map();
   let currentView = null;
 
+  // Global Media Query Breakpoints
+  const media = {
+    small: window.matchMedia('(max-width: 599.5px)'),
+    large: window.matchMedia('(min-width: 600px)'),
+  };
+
+  // Husk seneste state
+  let lastState = {
+    small: media.small.matches,
+    large: media.large.matches,
+  };
+  
+  // Opdatering + check om noget ændrer sig
+  let mediaInitialized = false;
+  function refreshMediaState() {
+    let changed = false;
+  
+    for (const key in media) {
+      const now = media[key].matches;
+      if (now !== lastState[key]) {
+        lastState[key] = now;
+        changed = true;
+      }
+    }
+
+    if (changed || !mediaInitialized) {
+      mediaInitialized = true;
+      window.dispatchEvent(new Event('mediachange'));
+    }
+  }
+  
+  // Lyt for ændringer
+  for (const key in media) {
+    media[key].addEventListener('change', refreshMediaState);
+    //console.log("Listening to media query changes for:", key);
+  }
+  
+  // Initial run (trigger én gang)
+  refreshMediaState();
+
   // Show a view by name, hide others, and update URL hash if pushState is true
   function showView(name, pushState = true){
+    const views = document.querySelectorAll('[data-view]')
+    const targetView = document.querySelector(`[data-view="${name}"]`);
+
+    // Hvis view ikke findes, fallback til 404
+    if(!targetView) {
+      console.warn(`\nPage not found "${name}".`);
+      name = '404';
+    }
+
     // Hide all views except the one to show
-    document.querySelectorAll('[data-view]').forEach(v => {
+    views.forEach(v => {
       v.hidden = v.dataset.view !== name;
     });
 
@@ -47,11 +96,13 @@ window.GlobalApp = (function(){
 
   // Initialize all components within the given root element (default: document)
   // by finding elements with data-component and calling their setup functions from the components map
-  function initComponents(root = document){
+  function initComponents(root = document) {
     root.querySelectorAll('[data-component]').forEach(el => {
-      const name = el.dataset.component;
-      const comp = components.get(name);
-      if(typeof comp === 'function') comp(el);
+      const names = el.dataset.component.split(',').map(n => n.trim());
+      names.forEach(name => {
+        const comp = components.get(name);
+        if (typeof comp === 'function') comp(el);
+      });
     });
   }
 
@@ -61,5 +112,5 @@ window.GlobalApp = (function(){
     initComponents(document);
   }
 
-  return { define, initAll, showView };
+  return { define, initAll, showView, media };
 })();

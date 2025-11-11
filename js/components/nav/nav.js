@@ -18,5 +18,19 @@ GlobalApp.define('nav', el => {
     });
   }
 
+  function checkMedia(){
+    if (GlobalApp.media.small.matches) {
+      console.log('Small screen - mobile navigation');
+      // Implement mobile-specific navigation behavior if needed
+    } else {
+      console.log('Large screen - desktop navigation');
+      // Implement desktop-specific navigation behavior if needed
+    }
+  }
+
+  // Initial check
+  checkMedia();
+
   window.addEventListener('viewchange', e => updateActive(e.detail.view));
+  window.addEventListener('resize', checkMedia);
 });
